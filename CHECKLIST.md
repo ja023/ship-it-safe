@@ -33,6 +33,7 @@ Work through it section by section and tick items off. Not every item applies to
 - [Databases & data](#databases--data) (27)
 - [Scaling & performance](#scaling--performance) (26)
 - [Monitoring, incidents & support](#monitoring-incidents--support) (27)
+- [SEO & discoverability](#seo--discoverability) (19)
 - [Email & domain](#email--domain) (6)
 - [Mobile apps](#mobile-apps) (8)
 - [AI features & agents](#ai-features--agents) (17)
@@ -535,6 +536,35 @@ Work through it section by section and tick items off. Not every item applies to
 - [ ] Let AI handle routine support (resets, known fixes, config errors), and send billing disputes, disguised feature requests and repeatedly unhappy customers to a person.
 - [ ] Tag tickets by root cause, not symptom, and sort them into user error (fix UX), platform error (add monitoring) or business-logic error (fix the spec). A cause that shows up 3 times in a week is an engineering bug.
 - [ ] Spend 30 minutes a week grouping the past 7 days of tickets by root cause.
+
+## SEO & discoverability
+
+### Getting crawled & indexed
+- [ ] Serve a `sitemap.xml` listing every public page (and only public pages), and point to it from `robots.txt`.
+- [ ] Check `robots.txt` doesn't block pages you want found. AI builders often leave a blanket `Disallow: /` from development.
+- [ ] Remove leftover `noindex` tags and `X-Robots-Tag` headers from public pages, and keep them on login, dashboard and other private pages.
+- [ ] Add a `<link rel="canonical">` to every public page so duplicate URLs (www vs apex, `.html` vs clean, preview subdomains, query strings) count as one page.
+- [ ] Verify the site in Google Search Console (and Bing Webmaster Tools), submit the sitemap, and check the indexing report for excluded pages.
+- [ ] Publish an `llms.txt` at the site root: a short plain-language summary of what you do, with links to your key pages, for AI assistants and search agents.
+
+### On-page basics
+- [ ] Give every page a unique `<title>` (about 50-60 characters) and meta description (about 140-160 characters) that say what the page is for.
+- [ ] Use exactly one `<h1>` per page.
+- [ ] Keep headings in order (h1 → h2 → h3) without skipping levels; style with CSS instead of picking a heading tag for its size.
+- [ ] Give every meaningful image descriptive alt text, and use `alt=""` for decorative ones.
+- [ ] Add schema.org structured data (JSON-LD) that fits the page: Organization, WebSite, FAQPage, Product, Article, JobPosting, LocalBusiness.
+- [ ] Use short, readable, lowercase URL slugs with hyphens (`/pricing`, not `/page?id=3` or `/Pricing.html`), and redirect old URLs with 301s when you change them.
+- [ ] Add an Open Graph image (1200×630) plus `og:title`, `og:description` and Twitter card tags so shared links show a proper preview.
+
+### Links
+- [ ] Link related pages to each other with descriptive anchor text, so no public page is an orphan only reachable from the sitemap.
+- [ ] Find and fix broken internal and external links, and return a real 404 status (not a 200) for missing pages.
+
+### Speed, mobile & HTTPS
+- [ ] Compress and resize images (WebP or AVIF, sized to how they're displayed), lazy-load below-the-fold images, and set width and height to avoid layout shift.
+- [ ] Check Core Web Vitals (LCP, INP, CLS) with PageSpeed Insights on mobile, and fix render-blocking scripts, fonts and CSS in the `<head>`.
+- [ ] Test every public page at phone width: no horizontal scroll, readable text, tap targets big enough.
+- [ ] Force HTTPS everywhere: redirect HTTP to HTTPS, pick one of www or apex and redirect the other, and turn on HSTS.
 
 ## Email & domain
 - [ ] Set up SPF and DKIM on your sending domain so Gmail and Outlook don't treat receipts as spam.

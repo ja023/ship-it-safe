@@ -24,6 +24,7 @@ This repo is a single checklist covering all of it, in plain language, organized
   - Databases & data
   - Scaling & performance
   - Monitoring, incidents & support
+  - SEO & discoverability
   - Email & domain
   - Mobile apps
   - AI features & agents
